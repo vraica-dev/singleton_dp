@@ -3,6 +3,10 @@ import yaml
 
 
 def rvg_timer(fnc):
+    """
+    logs the time that a function takes to perform ;
+    to be used as a decorator;
+    """
     import time
 
     def wrapper(*args, **kwargs):
@@ -16,6 +20,10 @@ def rvg_timer(fnc):
 
 
 def log_params(fnc):
+    """
+    used to log the params what were sent to the function;
+    filtered the args list in order to remove the  'self' if applied to a class method;
+    """
     def wrapper(*args, **kwargs):
         list_args = []
         try:
