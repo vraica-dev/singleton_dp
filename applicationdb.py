@@ -2,6 +2,7 @@
 this module is created to demonstrate the Singleton Design Pattern;
 """
 import sqlite3
+from tools import rvg_timer, log_params
 
 
 def singleton(cls):
@@ -40,6 +41,8 @@ class ApplicationDb(object):
         except IOError:
             pass
 
+    @log_params
+    @rvg_timer
     def query_db(self, qry_string: str):
         query_res = self.curr.execute(qry_string).fetchall()
         return query_res
